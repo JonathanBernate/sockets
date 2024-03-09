@@ -19,7 +19,7 @@ class Server:
         self.port = port
         self.buffer_size = BUFFER_SIZE
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.server.bind((self.host, self.port))
+        self.server.bind(('10.28.117.104', 156))
         self.server.listen(2)
         print(f"Esperando conexiones en {self.host}:{self.port} IP: {self.get_server_ip()}")
         self.clients = []
@@ -50,12 +50,14 @@ class Server:
                 data = client.recv(self.buffer_size)
                 if not data:
                     break
-                print(f"Mensaje de {client_address}: {data.decode('utf-8')}") # getpeername() devuelve la dirección del cliente
-                for c in self.clients:
+                data_str = data.decode("utf-8")
+                print(f"Mensaje de {client_address[0]}: {data_str}")
+                
+                """ for c in self.clients:
                     if c != client:
-                        c.send(data)
+                        c.send(data) """
 
-                self.gui.root.after(0, self.gui.update_canvas(data.decode("utf-8"))) 
+                self.gui.root.after(0, self.gui.update_canvas(data_str)) 
 
                 if data.decode("utf-8") == "exit":
                     self.clients.remove(client)

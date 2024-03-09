@@ -1,7 +1,7 @@
 import socket
 
-SERVER_IP = "192.168.0.10"  # Reemplaza con la IP del servidor
-PORT = 6751
+SERVER_IP = "192.168.0.4"  # Reemplaza con la IP del servidor
+PORT = 156
 
 def main():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
