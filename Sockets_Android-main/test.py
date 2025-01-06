@@ -6,7 +6,7 @@ velocidad_inicial = 10 # m/s
 angulo_disparo = 45 # grados
 altura_inicial = 0 # m
 
-# Convertir el ángulo a radianes
+
 angulo_disparo = angulo_disparo * np.pi / 180
 
 # Calcular el tiempo de vuelo
